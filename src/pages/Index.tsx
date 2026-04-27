@@ -6,7 +6,7 @@ import FeaturesSection from '@/components/FeaturesSection';
 import PackagesSection from '@/components/PricingSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import ContactSection from '@/components/ContactSection';
-import FAQSection from '@/components/FaqSection';
+import FAQSection from '@/components/FaqSection.tsx';
 import Footer from '@/components/Footer';
 
 const Index = () => {
