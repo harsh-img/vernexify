@@ -1,0 +1,225 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 217 91% 60%; /* SaaS Blue */
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 217 91% 60%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+    
+    /* Social Media Colors */
+    --twitter: 203 89% 53%;
+    --facebook: 221 44% 41%;
+    --linkedin: 210 90% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  /* Adding styles for blog content */
+  .prose h1, .prose h2, .prose h3, .prose h4 {
+    @apply text-slate-900 font-bold;
+  }
+  
+  .prose h1 {
+    @apply text-3xl md:text-4xl;
+  }
+  
+  .prose h2 {
+    @apply text-2xl md:text-3xl mt-8 mb-4;
+  }
+  
+  .prose h3 {
+    @apply text-xl md:text-2xl mt-6 mb-3;
+  }
+  
+  .prose p {
+    @apply text-slate-600 mb-4;
+  }
+  
+  .prose a {
+    @apply text-vernexify-blue hover:text-blue-600 transition-colors;
+  }
+  
+  .prose ul, .prose ol {
+    @apply text-slate-600 mb-4 pl-6;
+  }
+  
+  .prose ul {
+    @apply list-disc;
+  }
+  
+  .prose ol {
+    @apply list-decimal;
+  }
+  
+  .prose blockquote {
+    @apply border-l-4 border-vernexify-blue pl-4 italic my-6 text-slate-700;
+  }
+  
+  .prose code {
+    @apply bg-slate-100 px-1 py-0.5 rounded text-slate-800;
+  }
+  
+  .prose pre {
+    @apply bg-slate-900 p-4 rounded-lg mb-6 overflow-x-auto text-white;
+  }
+  
+  .prose img {
+    @apply rounded-lg my-6;
+  }
+}
+
+@layer components {
+  .mesh-gradient {
+    background-color: #f8fafc;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(50, 115, 220, 0.05) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(0, 209, 178, 0.05) 0px, transparent 50%);
+  }
+
+  .glass-card {
+    @apply bg-white/40 backdrop-blur-xl border border-white/40 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)];
+  }
+
+  .text-gradient-premium {
+    @apply bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 bg-clip-text text-transparent;
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 30px rgba(50, 115, 220, 0.2);
+  }
+
+  .btn-primary {
+    @apply bg-vernexify-blue hover:bg-vernexify-indigo text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary hover:bg-saas-darkGray text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+  }
+
+  .card-shadow {
+    @apply shadow-[0_8px_30px_rgb(0,0,0,0.12)];
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-vernexify-blue to-indigo-600 bg-clip-text text-transparent;
+  }
+  
+  /* Add animation utilities */
+  .animate-fade-in {
+    @apply opacity-0 translate-y-4 animate-[fadeIn_0.5s_ease-out_forwards];
+  }
+  
+  /* Adding line-clamp utilities */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  /* Add hover effects for cards */
+  .hover-zoom {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+
+  /* 3D and Animation Utilities */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .rotate-y-6 {
+    transform: rotateY(6deg);
+  }
+
+  .rotate-x-2 {
+    transform: rotateX(2deg);
+  }
+
+  .animate-bounce-slow {
+    animation: bounce-slow 4s infinite ease-in-out;
+  }
+
+  @keyframes bounce-slow {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Add additional blue glow animation */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(50, 115, 220, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(50, 115, 220, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(50, 115, 220, 0);
+  }
+}
+
+.pulse-blue {
+  animation: pulseGlow 2s infinite;
+}
